@@ -10,4 +10,12 @@ class auctionController extends Controller
     {
     	return view("auctions.home");
     }
+        public function profile()
+    {
+    	return view("auctions.profile");
+    }
+        public function uppbod()
+    {
+    	return view("auctions.auctions");
+    }
 }

@@ -15,3 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get("/home", "auctionController@home");
+Route::get("/auction", "auctionController@auctions");
+Route::get("/profile", "auctionController@profile");
+
+Auth::routes();
+
