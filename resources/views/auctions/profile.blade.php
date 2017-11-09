@@ -13,4 +13,4 @@ extends('layouts.app')
         </div>
     </div>
 </div>
-@endsection
+@endsections

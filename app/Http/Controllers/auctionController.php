@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App/auctionHouse
+use Auth;
 
 class auctionController extends Controller
 {
     public function home()
     {
-    	return view("auctions.home");
+        $listings = auctionHouse::latest()->get();
+    	return view("auctions.home", compact(("listings"));
     }
         public function profile()
     {

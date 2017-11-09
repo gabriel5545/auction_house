@@ -18,10 +18,10 @@ class CreateAuctionHouseTable extends Migration
             $table->integer("price");
             $table->string("title", 30);
             $table->text("description");
-            $table->boolean('sold')->default(true);
+            $table->boolean('sold')->default(false);
             $table->string('image', 250)->nullable();
-            $table->integer("user_id");
-            $table->foreign("user_id")->references('id')->on("user_id");
+            $table->unsignedInteger("user_id");
+            $table->foreign("user_id")->references('id')->on("users");
             $table->timestamps();
         });
     }
