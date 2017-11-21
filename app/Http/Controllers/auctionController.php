@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App/auctionHouse
+use App\auctionHouse;
 use Auth;
 
 class auctionController extends Controller
@@ -12,14 +12,16 @@ class auctionController extends Controller
     public function home()
     {
         $listings = auctionHouse::latest()->get();
-    	return view("auctions.home", compact(("listings"));
+
+    	return view("auctions.home", compact("listings"));
     }
         public function profile()
     {
     	return view("auctions.profile");
     }
-        public function uppbod()
+        public function uppbod($id)
     {
-    	return view("auctions.auctions");
+        $uppbod = auctionHouse::find($id);
+    	return view("auctions.auctions", compact("uppbod"));
     }
 }

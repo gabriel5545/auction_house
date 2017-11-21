@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect("/" , "/home" );
 Route::get("/home", "auctionController@home");
-Route::get("/auction", "auctionController@auctions");
-Route::get("/profile", "auctionController@profile");
+Route::get("/auction/{id}", "auctionController@uppbod");
+Route::get("/profile{id}", "auctionController@profile");
 
 Auth::routes();
 
