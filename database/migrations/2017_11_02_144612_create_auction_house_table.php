@@ -15,6 +15,7 @@ class CreateAuctionHouseTable extends Migration
     {
         Schema::create('auction_house', function (Blueprint $table) {
             $table->increments('id');
+            $table->intiger("starter bid");
             $table->integer("price");
             $table->string("title", 30);
             $table->text("description");

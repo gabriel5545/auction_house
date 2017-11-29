@@ -11,9 +11,9 @@ class auctionController extends Controller
 {
     public function home()
     {
-        $listings = auctionHouse::latest()->get();
+  
 
-    	return view("auctions.home", compact("listings"));
+    	return view("auctions.home");
     }
         public function profile()
     {
@@ -22,6 +22,27 @@ class auctionController extends Controller
         public function uppbod($id)
     {
         $uppbod = auctionHouse::find($id);
-    	return view("auctions.auctions", compact("uppbod"));
+    	return view("auction.auctions", compact("uppbod"));
+    }
+    public  function auctions()
+    {
+        $listings = auctionHouse::latest()->get();
+        return  view("auctions.auctions",compact(   "listings"));
+    }
+    public function nyttuppbod()
+    {
+
+        return  view("auctions.newauction");
+    }
+    public function newauction($request)
+    {
+        $auctionHouse = new auction;
+        $auctionHouse->title = $request->title;
+        $auctionHouse->description = $request->description; 
+        $auctionHouse->price = $request->price;
+        $auctionHouse->user_id = auth()->id();
+        $auctionHouse->save();
+
+        return redirect("auctions.home");
     }
 }
